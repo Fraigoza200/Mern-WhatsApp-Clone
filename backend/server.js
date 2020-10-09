@@ -1,4 +1,5 @@
 // requiring 
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const Messages = require('./dbMessages')
@@ -23,7 +24,7 @@ app.use(cors())
 
 
 // DB config
-const connection_url ='mongodb+srv://WHATSAPP:fSqQxHhCmt3rmozC@cluster0.odjsz.mongodb.net/whatsappdb?retryWrites=true&w=majority'
+const connection_url = process.env.MONGO_CONNECTION
 
 mongoose.connect(connection_url, { 
     useCreateIndex: true,

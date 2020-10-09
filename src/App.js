@@ -1,8 +1,11 @@
+require('dotenv').config()
+
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Sidebar from './Sidebar';
 import Chat from './Chat'
 import axios from './axios'
+
 
 const Pusher = require('pusher-js')
 
@@ -17,7 +20,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    const pusher = new Pusher('aa5181e832219eea796f', {
+    const pusher = new Pusher(process.env.PUSHER_KEYS, {
       cluster: 'us3'
     });
 
